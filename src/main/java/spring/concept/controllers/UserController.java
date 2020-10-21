@@ -2,12 +2,11 @@ package spring.concept.controllers;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import spring.concept.config.AppConfig;
 import spring.concept.dto.UserResponseDto;
 import spring.concept.model.User;
 import spring.concept.service.UserService;
@@ -15,9 +14,8 @@ import spring.concept.service.UserService;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-    private AnnotationConfigApplicationContext context =
-            new AnnotationConfigApplicationContext(AppConfig.class);
-    private UserService userService = context.getBean(UserService.class);
+    @Autowired
+    UserService userService;
 
     @GetMapping("/inject")
     public String injectUsers() {
