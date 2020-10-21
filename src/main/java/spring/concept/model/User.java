@@ -73,7 +73,6 @@ public class User {
         return "User{ id=" + id
                 + ", login='" + login
                 + ", email='" + email
-                + ", password='" + password
                 + ", name='" + name + "'}";
     }
 }
